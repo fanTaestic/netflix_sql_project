@@ -12,7 +12,7 @@ The project involves a comprehensive analysis on Netflix movies and TV shows dat
 
 ## Dataset
 The data for this project is sourced from the Kaggle dataset.
-Dataset Link: https://www.kaggle.com/datasets/shivamb/netflix-shows
+- Dataset Link: https://www.kaggle.com/datasets/shivamb/netflix-shows
 
 ## Schema
 ```sql
@@ -62,8 +62,7 @@ WHERE
 	ranking = 1
 ```
   
-### 3. LIST ALL MOVIES RELEASED IN A SPECIFIC YEAR (EG., 2020)
-   --FILTER DATA FROM 2020 AND FOR MOVIES ONLY
+### 3. LIST ALL MOVIES RELEASED IN A SPECIFIC YEAR (EG., 2020). FILTER DATA FROM 2020 AND FOR MOVIES ONLY
 ```sql   
 SELECT * FROM NETFLIX
 WHERE 
