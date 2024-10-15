@@ -11,7 +11,7 @@ The project involves a comprehensive analysis on Netflix movies and TV shows dat
 - Explore and categorized content based on specific criteria and keywords.
 
 ## Dataset
-The data for this project is sourced from the Kaggle dataset:
+The data for this project is sourced from the Kaggle dataset.
 Dataset Link: https://www.kaggle.com/datasets/shivamb/netflix-shows
 
 ## Schema
