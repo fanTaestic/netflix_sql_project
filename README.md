@@ -15,7 +15,7 @@ The data for this project is sourced from the Kaggle dataset:
 Dataset Link: https://www.kaggle.com/datasets/shivamb/netflix-shows
 
 ## Schema
-'''sql
+```sql
 DROP TABLE IF EXISTS netflix;
 CREATE TABLE netflix
 (
@@ -32,7 +32,7 @@ CREATE TABLE netflix
    listed_in VARCHAR(100),
    description VARCHAR(250)
 );
-'''
+```
 
 ## 15 BUSINESS PROBLEMS AND SOLUTIONS
 
