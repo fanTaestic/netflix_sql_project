@@ -36,7 +36,7 @@ CREATE TABLE netflix
 
 ## 15 BUSINESS PROBLEMS AND SOLUTIONS
 
-## 1. COUNT THE NUMBER OF MOVIES VS TV SHOWS
+### 1. COUNT THE NUMBER OF MOVIES VS TV SHOWS
 ```sql
 SELECT type,
 COUNT(*) AS TOTAL_CONTENT
@@ -44,7 +44,7 @@ FROM netflix
 GROUP BY type
 ```
 
-## 2. FIND THE MOST COMMON RATING FOR MOVIES AND TV SHOWS
+### 2. FIND THE MOST COMMON RATING FOR MOVIES AND TV SHOWS
 ```sql
 SELECT 
 	   type,
@@ -62,7 +62,7 @@ WHERE
 	ranking = 1
 ```
   
-## 3. LIST ALL MOVIES RELEASED IN A SPECIFIC YEAR (EG., 2020)
+### 3. LIST ALL MOVIES RELEASED IN A SPECIFIC YEAR (EG., 2020)
    --FILTER DATA FROM 2020 AND FOR MOVIES ONLY
 ```sql   
 SELECT * FROM NETFLIX
@@ -71,7 +71,7 @@ WHERE
 	and release_year = 2020
 ```
 
-## 4. FIND THE TOP 5 COUNTRIES WITH THE MOST CONTENT ON NETFLIX
+### 4. FIND THE TOP 5 COUNTRIES WITH THE MOST CONTENT ON NETFLIX
 ```sql
 SELECT 
 	country,
@@ -94,7 +94,7 @@ ORDER BY 2 DESC
 LIMIT 5 --TOP 5 COUNTRIES
 ```
 
-## 5. IDENTIFY THE LONGEST MOVIE
+### 5. IDENTIFY THE LONGEST MOVIE
 ```sql
 SELECT * FROM netflix
 WHERE 
@@ -103,7 +103,7 @@ WHERE
 	duration= (Select max(duration)FROM netflix)
 ```
 
-## 6. FIND CONTENT ADDED IN THE LAST 5 YEARS
+### 6. FIND CONTENT ADDED IN THE LAST 5 YEARS
 ```sql
 SELECT *,
 	TO_DATE(date_added, 'Month DD, YYYY')   --to convert into actual date
@@ -117,13 +117,13 @@ WHERE
 	TO_DATE(date_added, 'Month DD, YYYY')>= CURRENT_DATE - INTERVAL '5 years'
 ```	
 
-## 7. FIND ALL THE MOVIES/TV SHOWS BY DIRECTOR 'RAJIV CHILAKA'!
+### 7. FIND ALL THE MOVIES/TV SHOWS BY DIRECTOR 'RAJIV CHILAKA'!
 ```sql
 SELECT * FROM netflix
 WHERE director ILIKE '%Rajiv Chilaka%'    --ILIKE for case sensitive data
 ```
 
-## 8. LIST ALL TV SHOWS WITH MORE THAN 5 SEASONS
+### 8. LIST ALL TV SHOWS WITH MORE THAN 5 SEASONS
 ```sql
 SELECT *
 	--SPLIT_PART(duration, ' ', 1) as sessions
@@ -134,7 +134,7 @@ WHERE
 	SPLIT_PART(duration, ' ', 1)::numeric > 5 
 ```
 
-## 9. COUNT THE NUMBER OF CONTENT ITEMS IN EACH GENRE 
+### 9. COUNT THE NUMBER OF CONTENT ITEMS IN EACH GENRE 
 ```sql
 SELECT
 	UNNEST(STRING_TO_ARRAY(listed_in, ',')) as genre,
@@ -143,8 +143,7 @@ FROM netflix
 GROUP BY 1
 ```
 
-## 10. FIND EACH YEAR AND THE AVERAGE NUMBERS OF CONTENT RELEASE BY INDIA ON NETFLIX. 
--- RETURN TOP 5 YEAR WITH HIGHEST AVG CONTENT RELEASE
+### 10. FIND EACH YEAR AND THE AVERAGE NUMBERS OF CONTENT RELEASE BY INDIA ON NETFLIX. RETURN TOP 5 YEAR WITH HIGHEST AVG CONTENT RELEASE.
 ```sql
 SELECT
 	EXTRACT(YEAR FROM TO_DATE(date_added, 'MONTH, DD, YYYY')) as year,
@@ -167,21 +166,21 @@ WHERE country = 'India'
 GROUP BY 1
 ```
 
-## 11. List all the movies that are documentaries
+### 11. List all the movies that are documentaries
 ```sql
 SELECT * FROM netflix
 WHERE
 	listed_in ILIKE '%documentaries%'
 ```
 
-## 12. Find all content without a director 
+### 12. Find all content without a director 
 ```sql
 SELECT * FROM netflix
 WHERE
 	director IS NULL
 ```
 
-## 13. Find how many movies actor Salman Khan appeared in last 10 years
+### 13. Find how many movies actor Salman Khan appeared in last 10 years
 ```sql
 SELECT * FROM netflix
 WHERE
@@ -190,7 +189,7 @@ WHERE
 	release_year > EXTRACT(YEAR FROM CURRENT_DATE) - 10
 ```
 
-## 14. Find the top 10 actors who have appeared in the highest number of movies produced in India.
+### 14. Find the top 10 actors who have appeared in the highest number of movies produced in India.
 ```sql
 SELECT 
 --show_id, casts
@@ -203,9 +202,7 @@ ORDER BY 2 DESC
 LIMIT 10
 ```
 
-## 15. Categorize the content based on the presence of the keywords 'kill' and 'violence' in the description field.
--- Label content containing these keywords as 'Bad' and all other content as 'Good'. 
--- Count how many items fall into each category.
+### 15. Categorize the content based on the presence of the keywords 'kill' and 'violence' in the description field. Label content containing these keywords as 'Bad' and all other content as 'Good'. Count how many items fall into each category.
 
 ```sql
 WITH new_table
